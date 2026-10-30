@@ -1,0 +1,216 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --ink: #17130e;
+  --ink-muted: #6f685c;
+  --surface: #f7f1e8;
+  --surface-elevated: #fffdf9;
+  --surface-alt: #ebe1d2;
+  --line: rgba(23, 19, 14, 0.14);
+  --gold: #b38335;
+  --gold-bright: #e4bd76;
+  --hero-veil: rgba(5, 5, 4, 0.48);
+  --theme-bg: #f7f1e8;
+  --theme-text: #17130e;
+  --theme-muted: #6f685c;
+  --theme-panel: #fffdf9;
+  --theme-panel-alt: #ebe1d2;
+  --theme-border: rgba(23, 19, 14, 0.16);
+  --theme-input: #fffdf9;
+  --theme-control: #f4ecdf;
+  --theme-control-text: #483a2a;
+  --theme-heading: #7d5a22;
+  --theme-inverse: #0b0d0d;
+  --theme-inverse-text: #f2e9d9;
+  --theme-inverse-muted: #6f685c;
+  --chrome-bg: #f7f1e8;
+  --chrome-text: #33271b;
+  --chrome-muted: #6c5c4b;
+  --chrome-brand: #8b6428;
+  --chrome-border: rgba(23, 19, 14, 0.14);
+  --footer-bg: #eee5d8;
+  --footer-text: #493d31;
+  --shop-veil-top: rgba(247, 241, 232, 0.74);
+  --shop-veil-mid: rgba(247, 241, 232, 0.54);
+  --shop-veil-bottom: #f7f1e8;
+  --shop-side-veil: rgba(247, 241, 232, 0.46);
+  --visit-banner: #efe5d4;
+  --visit-banner-text: #211a12;
+}
+
+html.dark {
+  --ink: #f3ecdf;
+  --ink-muted: #b0a697;
+  --surface: #121210;
+  --surface-elevated: #1b1a17;
+  --surface-alt: #27231c;
+  --line: rgba(245, 239, 229, 0.16);
+  --gold: #d4a353;
+  --gold-bright: #f2cc83;
+  --hero-veil: rgba(0, 0, 0, 0.36);
+  --theme-bg: #121210;
+  --theme-text: #f3ecdf;
+  --theme-muted: #b0a697;
+  --theme-panel: #1b1a17;
+  --theme-panel-alt: #27231c;
+  --theme-border: rgba(245, 239, 229, 0.16);
+  --theme-input: #10120f;
+  --theme-control: #061014;
+  --theme-control-text: #e3d8c3;
+  --theme-heading: #f0d49a;
+  --theme-inverse: #080908;
+  --theme-inverse-text: #f2e9d9;
+  --theme-inverse-muted: #aab4b2;
+  --chrome-bg: #040a0c;
+  --chrome-text: #ead7b0;
+  --chrome-muted: #dad8ce;
+  --chrome-brand: #e6bd6c;
+  --chrome-border: #2f3b3e;
+  --footer-bg: #11100e;
+  --footer-text: rgba(255, 255, 255, 0.7);
+  --shop-veil-top: rgba(2, 7, 9, 0.74);
+  --shop-veil-mid: rgba(2, 7, 9, 0.65);
+  --shop-veil-bottom: #020607;
+  --shop-side-veil: rgba(2, 6, 7, 0.76);
+  --visit-banner: #0b1112;
+  --visit-banner-text: #faf7ef;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--surface);
+  color: var(--ink);
+  font-family: Arial, Helvetica, sans-serif;
+  transition: background-color 240ms ease, color 240ms ease;
+}
+
+body,
+header,
+footer,
+main,
+section,
+article,
+aside,
+input,
+select,
+button {
+  transition: background-color 240ms ease, border-color 240ms ease, color 240ms ease;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--gold-bright);
+  outline-offset: 4px;
+}
+
+.font-display {
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.tracking-luxury {
+  letter-spacing: 0.28em;
+}
+
+.hero-copy {
+  text-wrap: balance;
+}
+
+.grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.12;
+  mix-blend-mode: soft-light;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.4'/%3E%3C/svg%3E");
+}
+
+.reveal-line {
+  position: relative;
+  display: inline-block;
+}
+
+.reveal-line::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -0.55rem;
+  height: 1px;
+  background: var(--gold-bright);
+  transform: scaleX(0.66);
+  transform-origin: left;
+  transition: transform 220ms ease;
+}
+
+.reveal-line:hover::after {
+  transform: scaleX(1);
+}
+
+.image-zoom img {
+  transition: transform 700ms cubic-bezier(0.2, 0.65, 0.25, 1), filter 500ms ease;
+}
+
+.image-zoom:hover img {
+  transform: scale(1.045);
+  filter: saturate(1.08);
+}
+
+.gold-rule {
+  height: 1px;
+  width: 6rem;
+  background: linear-gradient(90deg, var(--gold), transparent);
+}
+
+.hero-vignette {
+  background:
+    linear-gradient(90deg, rgba(0, 0, 0, 0.78) 0%, rgba(0, 0, 0, 0.39) 47%, rgba(0, 0, 0, 0.04) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.52) 0%, transparent 38%);
+}
+
+.shop-veil {
+  background: linear-gradient(180deg, var(--shop-veil-top) 0%, var(--shop-veil-mid) 30%, rgba(2, 7, 9, 0.2) 74%, var(--shop-veil-bottom) 100%);
+}
+
+.shop-side-veil {
+  background: linear-gradient(90deg, var(--shop-side-veil), transparent 55%, rgba(2, 6, 7, 0.2));
+}
+
+html:not(.dark) .shop-veil {
+  background: linear-gradient(180deg, var(--shop-veil-top) 0%, var(--shop-veil-mid) 30%, rgba(247, 241, 232, 0.9) 74%, var(--shop-veil-bottom) 100%);
+}
+
+html:not(.dark) .shop-side-veil {
+  background: linear-gradient(90deg, var(--shop-side-veil), transparent 55%, rgba(247, 241, 232, 0.35));
+}
+
+.visit-map-label {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.dark .hero-vignette {
+  background:
+    linear-gradient(90deg, rgba(0, 0, 0, 0.84) 0%, rgba(0, 0, 0, 0.45) 47%, rgba(0, 0, 0, 0.08) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.6) 0%, transparent 38%);
+}
+
+@media (max-width: 640px) {
+  .tracking-luxury {
+    letter-spacing: 0.18em;
+  }
+}
